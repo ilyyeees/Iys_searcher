@@ -100,12 +100,13 @@ For the curious minds, here's a quick breakdown of how the code is organized:
 
 ## License Info
 
-MIT License, just assume standard copyright applies. If you have questions about usage, feel free to reach out.
+This project is licensed under the **MIT License**. You can find the full license text in the `LICENSE` file in this repository. Feel free to reach out if you have questions about usage.
 
 ---
 
 Hope this gives you a better feel for the project! Let me know if you have any questions.
 
 Contact me on Discord for any questions!
+
 add me by username : **il.y.s**
-or just type <@201682329851265026> in any chat and my contact will pop up!
+or just type **<@201682329851265026>** in any chat and my contact will pop up!
