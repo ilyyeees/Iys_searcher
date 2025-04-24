@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>IYS searcher</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QWidget {
+    background-color: #2d283e;
+    color: #d1d7e0;
+}
+
+QGroupBox {
+    font-weight: bold;
+    border: 1px solid #564f6f;
+    border-radius: 8px;
+    margin-top: 12px;
+    padding-top: 18px;
+    background-color: #372f4c;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 12px;
+    color: #d4bfff;
+    padding: 0 8px;
+    background-color: #372f4c;
+}
+
+QPushButton {
+    background-color: #4f5d75;
+    color: #d1d7e0;
+    border: 1px solid #564f6f;
+    border-radius: 6px;
+    padding: 6px 18px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #606b86;
+    border: 1px solid #9381ff;
+}
+
+QPushButton:pressed {
+    background-color: #394058;
+}
+
+QPushButton:disabled {
+    background-color: #343045;
+    color: #555555;
+    border: 1px solid #4a4458;
+}
+
+QLineEdit {
+    border: 1px solid #564f6f;
+    border-radius: 6px;
+    padding: 6px;
+    background-color: #201d29;
+    color: #d1d7e0;
+}
+
+QLineEdit:focus {
+    border: 1px solid #9381ff;
+}
+
+QTextEdit, QPlainTextEdit {
+    border: 1px solid #564f6f;
+    border-radius: 6px;
+    background-color: #201d29;
+    color: #d1d7e0;
+    padding: 6px;
+}
+
+QProgressBar {
+    border: 1px solid #564f6f;
+    border-radius: 4px;
+    background-color: #201d29;
+    text-align: center;
+    color: #d1d7e0;
+}
+
+QProgressBar::chunk {
+    background-color: #9381ff;
+}
+
+QCheckBox {
+    color: #d1d7e0;
+}
+
+/* We'll handle the checkbox indicators in the code instead */
+
+QLabel {
+    padding: 3px;
+    color: #d1d7e0;
+}
+
+QMenuBar {
+    background-color: #2d283e;
+    color: #d1d7e0;
+}
+
+QMenuBar::item:selected {
+    background-color: #4f5d75;
+}
+
+QStatusBar {
+    background-color: #2d283e;
+    color: #d1d7e0;
+    border-top: 1px solid #564f6f;
+}
+
+QTableView {
+    border: 1px solid #564f6f;
+    background-color: #201d29;
+    color: #d1d7e0;
+    alternate-background-color: #2a2639;
+    selection-background-color: #9381ff;
+    selection-color: #ffffff;
+}
+
+QHeaderView::section {
+    background-color: #4f5d75;
+    color: #d1d7e0;
+    padding: 4px;
+    border: 1px solid #564f6f;
+    font-weight: bold;
+}
+
+QTabWidget::pane {
+    border: 1px solid #564f6f;
+    border-radius: 6px;
+    background-color: #372f4c;
+}
+
+QTabBar::tab {
+    background-color: #4f5d75;
+    color: #d1d7e0;
+    border: 1px solid #564f6f;
+    border-bottom-color: #564f6f;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 6px 12px;
+    margin-right: 2px;
+}
+
+QTabBar::tab:selected {
+    background-color: #606b86;
+    border-bottom-color: #606b86;
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Search Options</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Search Term:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="QLineEdit" name="searchTermLineEdit">
+         <property name="placeholderText">
+          <string>Enter text contained in filename</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Start Path:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="startPathLineEdit">
+         <property name="placeholderText">
+          <string>Leave empty to search all drives/roots</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="browseStartPathButton">
+         <property name="text">
+          <string>Browse...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Extension Filter:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QLineEdit" name="extensionLineEdit">
+         <property name="placeholderText">
+          <string>e.g., .log or txt (leave empty for any)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="3">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QCheckBox" name="caseInsensitiveCheckBox">
+           <property name="text">
+            <string>Case Insensitive</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="verboseErrorsCheckBox">
+           <property name="text">
+            <string>Show Access Errors</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Output File:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="outputFileLineEdit">
+         <property name="placeholderText">
+          <string>Optional: Leave empty to output below</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QPushButton" name="browseOutputFileButton">
+         <property name="text">
+          <string>Browse...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="startButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Start Search</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/search_icon.png</normaloff>:/icons/search_icon.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pauseButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Pause</string>
+        </property>
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancelButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>Search Results</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Filter Results:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="resultsFilterLineEdit">
+           <property name="placeholderText">
+            <string>Type to filter results...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="resultsTab">
+          <attribute name="title">
+           <string>Results</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QTableView" name="resultsTableView">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::SingleSelection</enum>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="errorsTab">
+          <attribute name="title">
+           <string>Errors</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QPlainTextEdit" name="errorLogTextEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="creditLabel">
+      <property name="text">
+       <string>Made By il.y.s</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #9381ff; font-style: italic;</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

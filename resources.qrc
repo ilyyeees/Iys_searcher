@@ -1,0 +1,10 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file>icons/search_icon.png</file>
+        <file>icons/splash_screen.png</file>
+        <file alias="styles/stylesheet.qss">styles/stylesheet.qss</file>
+        <file alias="icons/folder-open.svg">icons/folder-open.svg</file>
+        <file alias="icons/copy.svg">icons/copy.svg</file>
+    </qresource>
+</RCC> 
