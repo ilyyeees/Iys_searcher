@@ -108,5 +108,5 @@ Hope this gives you a better feel for the project! Let me know if you have any q
 
 Contact me on Discord for any questions!
 
-add me by username : **il.y.s**
-or just type **<@201682329851265026>** in any chat and my contact will pop up!
+Add me by username : **il.y.s**
+or just ping me by typing exactly **<@201682329851265026>** in any chat and my contact will pop up!
